@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: GrpcGreeterClient
+  labels:
+    app: GrpcGreeterClient
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: GrpcGreeterClient
+  template:
+    metadata:
+      labels:
+        app: GrpcGreeterClient
+    spec:
+      containers:
+        - name: GrpcGreeterClient
+          image: GrpcGreeterClient
+          ports:
+            - containerPort: 80
